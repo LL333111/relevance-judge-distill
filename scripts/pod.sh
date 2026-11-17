@@ -25,6 +25,9 @@ case "$cmd" in
     log=$1; shift
     pod "$ENVS; cd $REPO && nohup bash -c '$*' > logs/$log 2>&1 < /dev/null & echo started logs/$log" ;;
   pull)
-    pod "cd $REPO && tar czf - $*" | tar xzf - && echo "pulled: $*" ;;
+    # Through a temporary file: piping ssh straight into tar hangs on Git Bash.
+    tmp=$(mktemp)
+    pod -n "cd $REPO && tar czf - $*" > "$tmp" && tar xzf "$tmp" && echo "pulled: $*"
+    rm -f "$tmp" ;;
   *) echo "usage: pod.sh push|run|bg|pull" >&2; exit 2 ;;
 esac

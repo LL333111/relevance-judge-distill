@@ -1,0 +1,39 @@
+{
+ "name": "row1_zeroshot_V",
+ "args": {
+  "name": "row1_zeroshot_V",
+  "split": "V",
+  "adapter": null,
+  "final": false
+ },
+ "config": {
+  "model": "Qwen/Qwen3-Reranker-0.6B",
+  "instruction": "Given a product search query, retrieve products that exactly match what the customer is searching for",
+  "max_length": 512,
+  "eval_batch_size": 128,
+  "lora": {
+   "r": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ]
+  },
+  "train": {
+   "seed": 0,
+   "max_pairs_per_step": 64,
+   "warmup_ratio": 0.1,
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0
+  }
+ },
+ "git_commit": "unknown",
+ "torch": "2.15.0+cu132",
+ "gpu": "NVIDIA A40"
+}
