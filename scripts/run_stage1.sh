@@ -11,7 +11,7 @@ for lr in 5e-5 1e-4 2e-4 4e-4; do
     echo "skip $name (finished)"; continue
   fi
   echo "=== $name $(date -u +%FT%TZ)"
-  python -m src.train_student --name "$name" --train H5k --targets human --lr "$lr" --epochs "$EPOCHS" \
+  python -m src.train_student --name "$name" --train H5k --lr "$lr" --epochs "$EPOCHS" \
     2>&1 | grep -vE 'Warning|warn\(|Loading weights' || echo "FAILED $name"
 done
 echo STAGE1_QUEUE_DONE

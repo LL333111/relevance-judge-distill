@@ -9,8 +9,10 @@ s is the student's P(yes); t is the target on the same 0-1 scale. Targets come
 from a `target` column: the gain of the human label (baseline arm) or the
 judge's expected gain (method arm). Nothing else differs between arms.
 
-Usage (row 2):
-    python -m src.train_student --name row2_lr1e-4 --train H5k --lr 1e-4 --epochs 10
+Usage:
+    python -m src.train_student --name row2 --train H5k --lr 1e-4 --epochs 8          # baseline
+    python -m src.train_student --name row3 --train H5k U --lr 1e-4 --epochs 1 \
+        --judge-scores results/judge_h5k_U/scores_U.parquet                           # method
 """
 from __future__ import annotations
 
@@ -81,8 +83,13 @@ def git_commit() -> str:
         return marker.read_text().strip() if marker.exists() else "unknown"
 
 
-def load_training_frame(names: list[str], targets: str):
-    """Pairs with a `target` column. `targets` is 'human' for Stage 1."""
+def load_training_frame(names: list[str], judge_scores: str | None = None):
+    """Pairs with a `target` column.
+
+    Labeled splits (H5k, H50k) get the gain of their human label. The
+    unlabeled pool U gets the judge's expected gain from `judge_scores`
+    (a scores_U.parquet written by scripts/label_pool.py).
+    """
     import pandas as pd
 
     from src.data import load_pairs
@@ -91,10 +98,16 @@ def load_training_frame(names: list[str], targets: str):
     frames = []
     for name in names:
         df = load_pairs(name)
-        if targets == "human":
-            df["target"] = labels_to_gains(df["esci_label"])
+        if name == "U":
+            if judge_scores is None:
+                raise ValueError("training on U needs --judge-scores")
+            scores = pd.read_parquet(ROOT / judge_scores, columns=["example_id", "score"])
+            df = df.merge(scores, on="example_id", how="left", validate="one_to_one")
+            if df["score"].isna().any():
+                raise RuntimeError("judge scores do not cover the pool")
+            df["target"] = df["score"]
         else:
-            raise NotImplementedError("judge targets are added in Stage 3")
+            df["target"] = labels_to_gains(df["esci_label"])
         frames.append(df[["example_id", "query_id", "query", "product_text", "target"]])
     return pd.concat(frames, ignore_index=True)
 
@@ -112,7 +125,7 @@ def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--name", required=True)
     parser.add_argument("--train", nargs="+", default=["H5k"])
-    parser.add_argument("--targets", default="human")
+    parser.add_argument("--judge-scores", help="scores_U.parquet; required when training on U")
     parser.add_argument("--lr", type=float, required=True)
     parser.add_argument("--epochs", type=int, required=True)
     parser.add_argument("--evals-per-epoch", type=int, default=1)
@@ -132,7 +145,7 @@ def main() -> None:
     torch.manual_seed(tcfg["seed"])
     rng = np.random.default_rng(tcfg["seed"])
 
-    train = load_training_frame(args.train, args.targets)
+    train = load_training_frame(args.train, args.judge_scores)
     val = load_pairs("V")
     student = Student(cfg, train_lora=True)
     params = [p for p in student.peft_model.parameters() if p.requires_grad]
