@@ -26,6 +26,8 @@ def main() -> None:
     parser.add_argument("--name", required=True)
     parser.add_argument("--train", default="H5k", choices=["H5k", "H50k"])
     parser.add_argument("--model")
+    parser.add_argument("--eval-batch-size", type=int,
+                        help="inference batch size; lower it when the model is close to GPU memory")
     parser.add_argument("--epochs", type=int)
     parser.add_argument("--max-steps", type=int, default=0, help="smoke tests only")
     args = parser.parse_args()
@@ -35,6 +37,8 @@ def main() -> None:
     cfg = load_judge_config()
     if args.model:
         cfg["model"] = args.model
+    if args.eval_batch_size:
+        cfg["eval_batch_size"] = args.eval_batch_size
     tcfg = cfg["train"]
     epochs = args.epochs or tcfg["epochs"]
     out = ROOT / "results" / args.name

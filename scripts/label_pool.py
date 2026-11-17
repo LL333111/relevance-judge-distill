@@ -27,11 +27,15 @@ def main() -> None:
     parser.add_argument("--name", required=True)
     parser.add_argument("--adapter", required=True)
     parser.add_argument("--model")
+    parser.add_argument("--eval-batch-size", type=int,
+                        help="inference batch size; lower it when the model is close to GPU memory")
     args = parser.parse_args()
 
     cfg = load_judge_config()
     if args.model:
         cfg["model"] = args.model
+    if args.eval_batch_size:
+        cfg["eval_batch_size"] = args.eval_batch_size
     pool = load_pairs("U")
     assert "esci_label" not in pool.columns
     judge = Judge(cfg, adapter=args.adapter)

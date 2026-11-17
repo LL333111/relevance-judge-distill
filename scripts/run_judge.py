@@ -27,6 +27,8 @@ def main() -> None:
     parser.add_argument("--split", default="V", choices=["H5k", "H50k", "V", "T"])
     parser.add_argument("--adapter")
     parser.add_argument("--model")
+    parser.add_argument("--eval-batch-size", type=int,
+                        help="inference batch size; lower it when the model is close to GPU memory")
     parser.add_argument("--limit", type=int, default=0, help="smoke tests only")
     parser.add_argument("--final", action="store_true", help="Stage 5 only: allow the test split")
     args = parser.parse_args()
@@ -34,6 +36,8 @@ def main() -> None:
     cfg = load_judge_config()
     if args.model:
         cfg["model"] = args.model
+    if args.eval_batch_size:
+        cfg["eval_batch_size"] = args.eval_batch_size
     frame = load_pairs(args.split, allow_test=args.final)
     if args.limit:
         frame = frame.head(args.limit)
