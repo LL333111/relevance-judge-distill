@@ -1,0 +1,20 @@
+# Student reranker. Shared by rows 1, 2 and 3.
+model: Qwen/Qwen3-Reranker-0.6B
+# Task instruction (the model card recommends a task-specific one). Fixed
+# before any run; used unchanged for zero-shot scoring and for fine-tuning.
+instruction: Given a product search query, retrieve products that exactly match what the customer is searching for
+max_length: 512          # tokens, including the fixed prompt prefix and suffix
+eval_batch_size: 128
+
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+
+train:
+  seed: 0
+  max_pairs_per_step: 64   # whole queries are packed into a step up to this many pairs
+  warmup_ratio: 0.1
+  weight_decay: 0.0
+  max_grad_norm: 1.0
