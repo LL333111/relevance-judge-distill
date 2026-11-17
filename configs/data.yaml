@@ -1,0 +1,21 @@
+# Data and split configuration. Frozen: changing any
+# value here changes data/splits.json and invalidates every result.
+raw_dir: data/raw
+cache_dir: data/cache
+splits_path: data/splits.json
+
+locale: us            # US, Task 1 subset (small_version == 1)
+seed: 20261117
+
+# Sizes. V and T are counted in queries; the label budgets are counted in
+# pairs and filled with whole queries until the target is reached.
+val_queries: 1000
+test_queries: 3000
+h5k_pairs: 5000
+h50k_pairs: 50000     # superset of H5k
+
+# Product text (published protocol): title, brand, colour, first three bullet
+# points, truncated to max_chars. Missing fields are omitted.
+product_text:
+  max_bullets: 3
+  max_chars: 1200

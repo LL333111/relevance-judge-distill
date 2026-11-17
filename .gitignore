@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+
+# Raw downloads and derived caches are reproducible from
+# scripts/download_data.py; only the frozen split file is tracked.
+data/raw/
+data/cache/
+
+# Model checkpoints
+checkpoints/
+wandb/
