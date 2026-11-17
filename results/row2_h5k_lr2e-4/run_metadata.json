@@ -1,0 +1,54 @@
+{
+ "name": "row2_h5k_lr2e-4",
+ "args": {
+  "name": "row2_h5k_lr2e-4",
+  "train": [
+   "H5k"
+  ],
+  "targets": "human",
+  "lr": 0.0002,
+  "epochs": 8,
+  "evals_per_epoch": 1,
+  "max_steps": 0
+ },
+ "config": {
+  "model": "Qwen/Qwen3-Reranker-0.6B",
+  "instruction": "Given a product search query, retrieve products that exactly match what the customer is searching for",
+  "max_length": 512,
+  "eval_batch_size": 128,
+  "lora": {
+   "r": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ]
+  },
+  "train": {
+   "seed": 0,
+   "max_pairs_per_step": 64,
+   "warmup_ratio": 0.1,
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0
+  }
+ },
+ "git_commit": "36854141a26ee696bdfd3873f88c1f80ddb66992",
+ "n_train_pairs": 5005,
+ "n_train_queries": 251,
+ "steps_per_epoch": 88,
+ "total_steps": 704,
+ "n_trainable_params": 10092544,
+ "torch": "2.15.0+cu132",
+ "gpu": "NVIDIA A40",
+ "command": "/workspace/relevance-judge-distill/src/train_student.py --name row2_h5k_lr2e-4 --train H5k --targets human --lr 2e-4 --epochs 8",
+ "peak_gpu_gb": 16.423328399658203,
+ "lora_b_norm": 6.732061862945557,
+ "max_query_size": 188,
+ "train_seconds": 4468.264434461
+}
