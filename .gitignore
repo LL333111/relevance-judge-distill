@@ -12,3 +12,5 @@ data/cache/
 # Model checkpoints
 checkpoints/
 wandb/
+.git_commit
+logs/

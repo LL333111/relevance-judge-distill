@@ -18,7 +18,7 @@ cmd=$1; shift
 case "$cmd" in
   push)
     git archive --format=tar.gz HEAD \
-      | pod "mkdir -p $REPO/logs && tar xzf - -C $REPO && echo PUSH_OK \$(ls $REPO | wc -l) entries" ;;
+      | pod "mkdir -p $REPO/logs && tar xzf - -C $REPO && echo $(git rev-parse HEAD) > $REPO/.git_commit && echo PUSH_OK \$(ls $REPO | wc -l) entries" ;;
   run)
     pod "$ENVS; cd $REPO && $*" ;;
   bg)

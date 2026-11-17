@@ -77,7 +77,8 @@ def git_commit() -> str:
     try:
         return subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip()
     except Exception:
-        return "unknown"
+        marker = ROOT / ".git_commit"  # written by scripts/pod.sh push
+        return marker.read_text().strip() if marker.exists() else "unknown"
 
 
 def load_training_frame(names: list[str], targets: str):
