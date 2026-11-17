@@ -66,6 +66,11 @@ class Student:
         elif train_lora:
             from peft import LoraConfig, get_peft_model
             self.peft_model = get_peft_model(causal, LoraConfig(**self.cfg["lora"]))
+            # A step holds every candidate of its queries (one query has 188),
+            # so activations are recomputed in the backward pass instead of
+            # stored. The embeddings are frozen, hence the input-grad hook.
+            causal.gradient_checkpointing_enable()
+            causal.enable_input_require_grads()
         self.causal.eval()
 
     # ------------------------------------------------------------- tokenizing

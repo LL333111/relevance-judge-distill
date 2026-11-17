@@ -206,6 +206,9 @@ def main() -> None:
                 break
 
     metadata["peak_gpu_gb"] = torch.cuda.max_memory_allocated() / 2**30
+    metadata["lora_b_norm"] = float(sum(p.detach().float().pow(2).sum() for n, p in
+                                        student.peft_model.named_parameters() if "lora_B" in n) ** 0.5)
+    metadata["max_query_size"] = int(max(sizes))
     metadata["train_seconds"] = time.perf_counter() - started
     (out / "run_metadata.json").write_text(json.dumps(metadata, indent=1))
     print("BEST", json.dumps(best), flush=True)
