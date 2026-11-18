@@ -8,7 +8,7 @@
 # The pod id and its pod-scoped API key are in the container's environment.
 set -uo pipefail
 if [ $# -ge 4 ]; then
-  deadline=$(( $(date +%s) + $(printf '%.0f' "$(echo "$3 * 3600" | bc)") ))
+  deadline=$(( $(date +%s) + $3 * 3600 ))   # whole hours
   until grep -qE "$2" "$1" 2>/dev/null || [ "$(date +%s)" -ge "$deadline" ]; do sleep 30; done
   sleep $(( $4 * 60 ))
 fi
