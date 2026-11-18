@@ -1,0 +1,55 @@
+{
+ "name": "row3_h5k_lr1e-4",
+ "args": {
+  "name": "row3_h5k_lr1e-4",
+  "train": [
+   "H5k",
+   "U"
+  ],
+  "judge_scores": "results/judge14b_h5k_U/scores_U.parquet",
+  "lr": 0.0001,
+  "epochs": 1,
+  "evals_per_epoch": 4,
+  "max_steps": 0
+ },
+ "config": {
+  "model": "Qwen/Qwen3-Reranker-0.6B",
+  "instruction": "Given a product search query, retrieve products that exactly match what the customer is searching for",
+  "max_length": 512,
+  "eval_batch_size": 128,
+  "lora": {
+   "r": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ]
+  },
+  "train": {
+   "seed": 0,
+   "max_pairs_per_step": 64,
+   "warmup_ratio": 0.1,
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0
+  }
+ },
+ "git_commit": "f49a36beb39d7281adfd3268c3627391fc62ddc6",
+ "n_train_pairs": 354739,
+ "n_train_queries": 17641,
+ "steps_per_epoch": 6516,
+ "total_steps": 6516,
+ "n_trainable_params": 10092544,
+ "torch": "2.15.0+cu132",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "command": "/workspace/relevance-judge-distill/src/train_student.py --name row3_h5k_lr1e-4 --train H5k U --judge-scores results/judge14b_h5k_U/scores_U.parquet --lr 1e-4 --epochs 1 --evals-per-epoch 4",
+ "peak_gpu_gb": 16.421810150146484,
+ "lora_b_norm": 7.972659111022949,
+ "max_query_size": 188,
+ "train_seconds": 13715.278093854999
+}

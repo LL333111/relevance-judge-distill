@@ -28,7 +28,7 @@ FINAL_JUDGE = "Qwen3-14B"
 TEST_ROWS = {
     "1": ("row1_T", "Qwen3-Reranker-0.6B, zero-shot"),
     "2": ("row2_T", "Row 1 + 5K human labels (baseline)"),
-    "3": ("row3_T", "Row 1 + 5K human labels + 350K judge labels"),
+    "3": ("row3_T", "Row 1 + 5K human labels + 350K judge labels (method)"),
     "4": ("judge14b_T", "Judge: Qwen3-14B fine-tuned on 5K human labels"),
 }
 
@@ -169,6 +169,15 @@ def final(summary: dict, lines: list[str]) -> None:
     lines.append("")
     if "4" in rows and "classes" in rows["4"]:
         c = rows["4"]["classes"]
+        # 20 pairs where the judge's label differs from the human label, for manual review.
+        judge = scored(rows["4"]["run"], "T", test)
+        judge["judge_label"] = np.array(LABELS)[judge[[f"p_{label}" for label in LABELS]].to_numpy().argmax(axis=1)]
+        sample = judge[judge["judge_label"] != judge["esci_label"]].sample(20, random_state=0)
+        sample = sample.assign(product_text=sample["product_text"].str.slice(0, 500))
+        cols = ["example_id", "query", "product_text", "esci_label", "judge_label"] + [f"p_{label}" for label in LABELS]
+        (RES / "judge_disagreements_sample.json").write_text(
+            json.dumps(sample[cols].to_dict(orient="records"), indent=1, ensure_ascii=False), encoding="utf-8")
+        summary["test"]["judge_disagreement_rate"] = float((judge["judge_label"] != judge["esci_label"]).mean())
         lines += [f"Judge on T: accuracy {c['accuracy']:.3f}, kappa {c['kappa']:.3f}; recall "
                   + ", ".join(f"{label} {c['recall'][label]:.3f}" for label in LABELS) + ".", ""]
 
