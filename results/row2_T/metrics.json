@@ -1,0 +1,10 @@
+{
+ "ndcg@10": 0.7831852161039378,
+ "n_queries": 3000,
+ "n_undefined": 0,
+ "n_pairs": 61055,
+ "seconds": 485.9149879870092,
+ "pairs_per_second": 125.64955086677072,
+ "n_truncated": 73,
+ "mean_tokens": 214.50996642371632
+}

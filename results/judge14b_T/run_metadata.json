@@ -1,0 +1,43 @@
+{
+ "name": "judge14b_T",
+ "args": {
+  "name": "judge14b_T",
+  "split": "T",
+  "adapter": "checkpoints/judge14b_h5k_ep1",
+  "model": "Qwen/Qwen3-14B",
+  "eval_batch_size": 16,
+  "limit": 0,
+  "final": true
+ },
+ "config": {
+  "model": "Qwen/Qwen3-14B",
+  "max_product_tokens": 400,
+  "eval_batch_size": 16,
+  "lora": {
+   "r": 16,
+   "lora_alpha": 32,
+   "lora_dropout": 0.05,
+   "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+   ]
+  },
+  "train": {
+   "seed": 0,
+   "lr": 0.0001,
+   "epochs": 3,
+   "batch_size": 16,
+   "warmup_ratio": 0.1,
+   "weight_decay": 0.0,
+   "max_grad_norm": 1.0
+  }
+ },
+ "git_commit": "f49a36beb39d7281adfd3268c3627391fc62ddc6",
+ "torch": "2.15.0+cu132",
+ "gpu": "NVIDIA L40S"
+}
