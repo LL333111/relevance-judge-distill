@@ -30,7 +30,7 @@ def main() -> None:
     parser.add_argument("--name", required=True)
     parser.add_argument("--adapter")
     parser.add_argument("--shard", help="i/n: label pairs i, i+n, i+2n, ... only")
-    parser.add_argument("--merge", type=int, help="join the n shard files into scores_U.parquet")
+    parser.add_argument("--merge", type=int, help="join the shard files into scores_U.parquet")
     parser.add_argument("--model")
     parser.add_argument("--eval-batch-size", type=int,
                         help="inference batch size; lower it when the model is close to GPU memory")
@@ -47,8 +47,11 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
     if args.merge:
         import pandas as pd
-        parts = [pd.read_parquet(out / f"scores_U.shard{i}of{args.merge}.parquet") for i in range(args.merge)]
-        merged = pd.concat(parts).set_index("example_id").loc[pool["example_id"]].reset_index()
+        # Every shard file present is used (a shard may itself have been split,
+        # e.g. 2/3 into 2/6 and 5/6); the checks below require full coverage.
+        parts = [pd.read_parquet(p) for p in sorted(out.glob("scores_U.shard*.parquet"))]
+        merged = pd.concat(parts).drop_duplicates("example_id")
+        merged = merged.set_index("example_id").loc[pool["example_id"]].reset_index()
         assert len(merged) == len(pool) and merged["example_id"].is_unique and not merged.isna().any().any()
         merged.to_parquet(out / "scores_U.parquet", index=False)
         print(f"MERGE_DONE {len(merged)} pairs")
