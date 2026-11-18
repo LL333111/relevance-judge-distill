@@ -4,7 +4,7 @@
     python scripts/analyze.py --final    # also the test-set table, CIs and figure
 
 Writes results/summary.json, results/tables.md and (with --final)
-results/ndcg_vs_throughput.png. Runs that do not exist are skipped.
+figures/ndcg_vs_throughput.png. Runs that do not exist are skipped.
 """
 from __future__ import annotations
 
@@ -185,19 +185,29 @@ def final(summary: dict, lines: list[str]) -> None:
         import matplotlib
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
-        fig, ax = plt.subplots(figsize=(6, 4))
+        from matplotlib.ticker import FixedLocator, FuncFormatter, NullFormatter
+        names = {"1": "Zero-shot student", "2": "Baseline student", "3": "Distilled student", "4": "Judge (14B)"}
+        fig, ax = plt.subplots(figsize=(6.4, 4))
         for row, r in rows.items():
             judge = row == "4"
             ax.scatter(r["pairs_per_second"], r["ndcg@10"], s=70, marker="s" if judge else "o",
                        color="#b3541e" if judge else "#1f5f8b", zorder=3)
-            ax.annotate(f"Row {row}", (r["pairs_per_second"], r["ndcg@10"]), textcoords="offset points", xytext=(8, 6))
+            ax.annotate(f"{row}. {names[row]}", (r["pairs_per_second"], r["ndcg@10"]), textcoords="offset points",
+                        xytext=(9, -4) if judge else (-9, -4), ha="left" if judge else "right")
         ax.set_xscale("log")
-        ax.set_xlabel("Throughput (pairs scored per second, log scale)")
+        ax.set_xlim(8, 400)
+        ax.xaxis.set_major_locator(FixedLocator([10, 30, 100, 300]))
+        ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f"{v:g}"))
+        ax.xaxis.set_minor_formatter(NullFormatter())
+        values = [r["ndcg@10"] for r in rows.values()]
+        ax.set_ylim(min(values) - 0.004, max(values) + 0.004)
+        ax.set_xlabel("Throughput on one L40S (pairs scored per second, log scale)")
         ax.set_ylabel("nDCG@10 on the test set")
-        ax.set_title("Quality vs. throughput (square: judge, circles: 0.6B students)")
+        ax.set_title("Ranking quality vs. throughput")
         ax.grid(alpha=0.3)
         fig.tight_layout()
-        fig.savefig(RES / "ndcg_vs_throughput.png", dpi=160)
+        (ROOT / "figures").mkdir(exist_ok=True)
+        fig.savefig(ROOT / "figures" / "ndcg_vs_throughput.png", dpi=160)
 
 
 def main() -> None:

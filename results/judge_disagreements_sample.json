@@ -1,0 +1,222 @@
+[
+ {
+  "example_id": 1052173,
+  "query": "induro gimbal head",
+  "product_text": "Title: Wimberley WH-200 Wimberley Gimbal Head II - Made in USA\nBrand: WIMBERLEY\n- Gimbal-type design allows you to rotate your lens around its center of gravity and thus easily manipulate very large lenses\n- Rugged design offers stiffness, capacity and smooth pan and tilt movement in a compact and lightweight package\n- Arca Swiss style clamp supports a variety of medium and telephoto lenses",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.5789414644241333,
+  "p_S": 0.397900253534317,
+  "p_C": 0.005675742402672768,
+  "p_I": 0.017482517287135124
+ },
+ {
+  "example_id": 1503192,
+  "query": "otterbox symmetry iphone 7",
+  "product_text": "Title: OtterBox SYMMETRY SERIES Case for iPhone 7 Plus / iPhone 8 Plus -Lost My Marbles\nBrand: OtterBox\nColour: Lost My Marbles",
+  "esci_label": "I",
+  "judge_label": "E",
+  "p_E": 0.4383341372013092,
+  "p_S": 0.3413749635219574,
+  "p_C": 0.013236544094979763,
+  "p_I": 0.20705439150333405
+ },
+ {
+  "example_id": 1058862,
+  "query": "instax camera film",
+  "product_text": "Title: Fujifilm Instax Mini 9 Instant Camera + Fuji Instant Film (40 Sheets) + Accessories Bundle - Carrying Case, Color Filters, Photo Albums, Assorted Frames, Selfie Lens plus more (Ice Blue)\nBrand: DEALS NUMBER ONE\nColour: Ice Blue\n- START SNAPPING IN SECONDS – You’ll be the talk of the party and the center of attention with your new FujiFilm Instax Mini 9 Camera. It’s simple to use, so anyone can easily achieve crystal clear, vibrant photos in no time. Plus, built-in flash and Fujinon 6mm f/",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.616635799407959,
+  "p_S": 0.2912781536579132,
+  "p_C": 0.027093086391687393,
+  "p_I": 0.06499293446540833
+ },
+ {
+  "example_id": 206987,
+  "query": "anti freeze products without blow out",
+  "product_text": "Title: Phyto Paris Phytodefrisant, 4.4 Fl Oz\nBrand: PHYTO\nColour: white\n- Country Of Origin: France\n- Item Package Dimension: 1.88\" L x 2.35\" W x 6.0\" H\n- Item Package Weight: 4.4 lb",
+  "esci_label": "E",
+  "judge_label": "I",
+  "p_E": 0.31352242827415466,
+  "p_S": 0.31352242827415466,
+  "p_C": 0.0176877249032259,
+  "p_I": 0.3552674651145935
+ },
+ {
+  "example_id": 1457471,
+  "query": "no thermostat heat trace",
+  "product_text": "Title: HEATIT HISD 3-feet Pipe Heating with Built-in Thermostat, Black\nBrand: HEATIT\nColour: Black\n- Use for water filled plastic (including PEX) or metal pipes. Not use for anything else, like empty water pipes, fuel lines, hoses, gutters, steam lines and so on. Two year limited quality . If you are not completely satisfied with HEATIT heating cable, please don't hesitate to contact our customer service in any time, we'll try our best to solve your issues.\n- Pre-assembled easy to install. Inclu",
+  "esci_label": "C",
+  "judge_label": "S",
+  "p_E": 0.28973817825317383,
+  "p_S": 0.37203118205070496,
+  "p_C": 0.009914294816553593,
+  "p_I": 0.3283163607120514
+ },
+ {
+  "example_id": 728979,
+  "query": "e12 bolt",
+  "product_text": "Title: LiteHistory Dimmable t6 led Bulb 40W Candelabra led 2700K Clear 400lm 4W e12 Edison Bulb 6Pack\nBrand: LiteHistory\nColour: 4w=40w 2700K Clear\n- 【DIMMABLE COMPATIBILITY&FLICKER FREE】:e12 led bulb is smooth dimming 0%-100%,no-flicker or strobe,no humming or buzzing,led candelabra bulb compatible with 95% Lutron and Leviton dimmers,such as Skylark,Davi,Toggler,Maestro,Rotary Preset Dimmer(SCL-153P-WH,CTCL-153PDH-WH,TGCL-153PH-WH,MAELV-600-WH,S-600P-GR,DVELV-300P-WH,DVWCL-153PH-WH,DV-600P-WH,D",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.9195346236228943,
+  "p_S": 0.06661086529493332,
+  "p_C": 0.0022792986128479242,
+  "p_I": 0.01157523225992918
+ },
+ {
+  "example_id": 1886561,
+  "query": "space womens shirt",
+  "product_text": "Title: Amazon Essentials Women's 2-Pack Tech Stretch Short-Sleeve V-Neck T-Shirt, Olive Space dye/Black, Medium\nBrand: Amazon Essentials\nColour: Olive/Black, Space Dye\n- Slightly tailored fit through the waist\n- Ultra-soft, quick-dry, moisture-wicking knit fabric with a gentle stretch\n- V neckline",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.8397384881973267,
+  "p_S": 0.1459246575832367,
+  "p_C": 0.002358652651309967,
+  "p_I": 0.011978225782513618
+ },
+ {
+  "example_id": 598602,
+  "query": "court of thorns and roses series",
+  "product_text": "Title: From Blood and Ash (Blood And Ash Series Book 1)",
+  "esci_label": "I",
+  "judge_label": "S",
+  "p_E": 0.12956519424915314,
+  "p_S": 0.580670952796936,
+  "p_C": 0.015474355779588223,
+  "p_I": 0.2742895483970642
+ },
+ {
+  "example_id": 702370,
+  "query": "dosge ramcharger panel",
+  "product_text": "Title: Bushwacker 14064 Black Trail Armor Rocker Panel & Sill Plate Covers for 2019 Ram 1500 Classic, 2009-2018 Ram 1500, 2009-2021 Ram 2500/3500 with Crew Cab, Pair\nBrand: Bushwacker\nColour: BLACK\n- Covers the door sill and rocker area under doors, providing protection from road debris and scratches\n- Hides unsightly pinch welds, existing scratches and rust damage\n- Made from our proprietary Dura-Flex 2000 TPO material with an OE-Style matte black textured finish",
+  "esci_label": "E",
+  "judge_label": "S",
+  "p_E": 0.21633940935134888,
+  "p_S": 0.4041752219200134,
+  "p_C": 0.02280200645327568,
+  "p_I": 0.3566833734512329
+ },
+ {
+  "example_id": 38608,
+  "query": "100 cotton underwear without elastic high waist no chafing",
+  "product_text": "Title: Gildan Men's Covered Waistband Boxer Briefs, Multipack, Mixed Royal (5-Pack), Medium\nBrand: Gildan\nColour: Mixed Royal (5-pack)\n- Solids: 100% Cotton; Sport Grey: 90% Cotton, 10% Polyester\n- Colors may vary\n- Moisture wicking - keeps you cool and dry",
+  "esci_label": "I",
+  "judge_label": "S",
+  "p_E": 0.37014564871788025,
+  "p_S": 0.5385587215423584,
+  "p_C": 0.008704991079866886,
+  "p_I": 0.08259066194295883
+ },
+ {
+  "example_id": 1957531,
+  "query": "table top ms pacman arcade game",
+  "product_text": "Title: My Arcade Pac-Man 40th Anniversary Micro Player, Fully Playable, 6.75 Inch Collectible, Full Color, Gold Plated, Battery or Micro USB Powered (DGUNL-3290), yellow\nBrand: My Arcade\nColour: Yellow\n- Commemorative Gold miniature replica of the classic PAC-MAN arcade cabinet\n- Original arcade PAC-MAN gameplay\n- Lenticular labels that animate the classic arcade cabinet graphics",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.86714768409729,
+  "p_S": 0.11735567450523376,
+  "p_C": 0.003127422882243991,
+  "p_I": 0.012369196861982346
+ },
+ {
+  "example_id": 997938,
+  "query": "heres the skinny probiotic",
+  "product_text": "Title: Nutrition Essentials Top Probiotic Supplement - 900 Billion cfu Probiotics - Best Acidophilus Probiotic for Women and Men - Organic Shelf Stable Probiotic for Digestive Health\nBrand: Nutrition Essentials\n- Buy With Confidence - Beware of probiotics that claim or use deceptive advertising. Buy with confidence with Satisfaction Guarantee - no questions asked! If for some reason our product doesn't work for you, you'll get your money back - Simple as that!\n- 900 Billion CFU Maximum Strength ",
+  "esci_label": "E",
+  "judge_label": "S",
+  "p_E": 0.28719615936279297,
+  "p_S": 0.6889477968215942,
+  "p_C": 0.007653519511222839,
+  "p_I": 0.016202500090003014
+ },
+ {
+  "example_id": 690349,
+  "query": "dog bowl stand without bowls",
+  "product_text": "Title: Elevated Dog Bowls Industrial Dog Bowl Stand for Medium Dog Raised Dog Bowl Wood Stand Feeder with 2 Stainless Steel Bowls Double Food Bowls, White\nBrand: YBING\nColour: White\n- ELEVATED DOG BOWLS: The depth of the stainless steel bowls is enough to hold more dog food. The design of one bowl of food and one bowl of water meets the daily needs of pets. Don’t worry about the water splashing when the dog is playing in the water.\n- RUSTPROOF AND EASY CLEANING: This raised dog feeder with two b",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.3797689974308014,
+  "p_S": 0.3797689974308014,
+  "p_C": 0.010120500810444355,
+  "p_I": 0.23034153878688812
+ },
+ {
+  "example_id": 1195373,
+  "query": "lcp 380 laser sight",
+  "product_text": "Title: LaserMax CenterFire Laser (Red) CF-LC9\nBrand: LaserMax\nColour: Multi\n- NATURAL HANDGRIP PLACEMENT - Laser is rounded and blended to the frame to insure a smooth draw\n- AMBIDEXTROUS TAP ON/TAP OFF SWITCH - Reinforces safe gun handling\n- CHOOSE THE LIGHT BEAM YOU PREFER - Easily programmable for steady or high-visibility pulsed laser beam",
+  "esci_label": "E",
+  "judge_label": "S",
+  "p_E": 0.16488678753376007,
+  "p_S": 0.5755114555358887,
+  "p_C": 0.0196929182857275,
+  "p_I": 0.2399088591337204
+ },
+ {
+  "example_id": 1832875,
+  "query": "simple arabic mehndi designs easy back",
+  "product_text": "Title: Kotbs Temporary Tattoos Paper Lovely English Words & Feather Designs Body Art Make up for Women Fake Tattoo Sticker (2 Sheet Pack)\nBrand: Kotbs\nColour: Black\n- POPULAR TATTOO TEMPORARY - 2 sheet lovely temporary tattoos which are measured dimension 10 * 20 CM (3.9 * 7.8 INCH). Your friends will be surprised you took a such rock tattoos! Great fun for parties, special events also for testing how would a real tattoo look like.\n- SAFETY FOR ALL SKIN TATTOO STICKER - the tattoos are printed w",
+  "esci_label": "I",
+  "judge_label": "S",
+  "p_E": 0.3635472059249878,
+  "p_S": 0.4668038487434387,
+  "p_C": 0.01809994876384735,
+  "p_I": 0.15154902637004852
+ },
+ {
+  "example_id": 922323,
+  "query": "golcochea varices",
+  "product_text": "Title: Goicoechea Body Lotion Cream Arnica and Chamomile & Skin Firming Elastin and Collagen 13.5oz\nBrand: Goicoechea\n- Goicoechea Body Lotion Cream Arnica and Chamomile 13.5oz\n- Goicoechea Body Lotion Cream Skin Firming Elastin and Collagen 13.5oz",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.6152983903884888,
+  "p_S": 0.2263556569814682,
+  "p_C": 0.021054353564977646,
+  "p_I": 0.13729164004325867
+ },
+ {
+  "example_id": 1659262,
+  "query": "purple down alternative comforter",
+  "product_text": "Title: 3 Piece Luxury Dark Purple / Grey Reversible Soft Down Alternative Comforter Set, King / Cal King with Corner Tab Duvet Insert\nBrand: Grand Linen\nColour: Purple/Grey\n- ELEGANT DESIGN: Luxurious Soft down-alternative comforter for year round\n- FINE TAILORED - Comforter 102-inch by 90-inch. Box stitched design to avoid any shifting\n- 100% SOFT MICROFIBER - Comforter set fabric content: 100-percent double brushed Microfiber.",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.920473575592041,
+  "p_S": 0.07555707544088364,
+  "p_C": 0.0013838759623467922,
+  "p_I": 0.002585421083495021
+ },
+ {
+  "example_id": 1307895,
+  "query": "maternity bodycon maxi dress",
+  "product_text": "Title: Verdusa Women's Long Sleeve Square Neck Bodycon Maxi Long Dress Black M\nBrand: Verdusa\nColour: Black\n- 94% Rayon, 6% Spandex\n- Long sleeve, fitted pencil bodycon tunic dress\n- soft and comfortable, stretch fabric",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.7298393249511719,
+  "p_S": 0.23694412410259247,
+  "p_C": 0.004917618352919817,
+  "p_I": 0.028298940509557724
+ },
+ {
+  "example_id": 1512171,
+  "query": "owlet sock replacement",
+  "product_text": "Title: Owlet Smart Sock 2 Baby Monitor, Pink\nBrand: Owlet",
+  "esci_label": "S",
+  "judge_label": "E",
+  "p_E": 0.37444818019866943,
+  "p_S": 0.37444818019866943,
+  "p_C": 0.050676047801971436,
+  "p_I": 0.20042766630649567
+ },
+ {
+  "example_id": 21201,
+  "query": "1 gallon ziplock bags the kind without the zip clip",
+  "product_text": "Title: 100 Pieces Resealable Smell Proof Bags Foil Pouch Bag Flat Bag for Party Favor Food Storage (Holographic Color, 3 x 4 Inch and 4 x 6 Inch)\nBrand: Blulu\nColour: Holographic Color",
+  "esci_label": "I",
+  "judge_label": "S",
+  "p_E": 0.13736514747142792,
+  "p_S": 0.42311444878578186,
+  "p_C": 0.016405927017331123,
+  "p_I": 0.42311444878578186
+ }
+]

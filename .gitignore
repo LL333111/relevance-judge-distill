@@ -14,3 +14,6 @@ checkpoints/
 wandb/
 .git_commit
 logs/
+
+# Per-GPU shard files; the merged scores_U.parquet is tracked
+results/*/scores_U.shard*.parquet
